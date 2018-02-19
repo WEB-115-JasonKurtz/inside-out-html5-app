@@ -12,28 +12,7 @@
 		<link rel="stylesheet" href="assets/css/header-resize.css">
 		
 		<!-- styles used for the footer of the page -->
-		<link rel="stylesheet" href="assets/css/footer.css">
-		
-		<script>
-    		function init() {
-        		window.addEventListener('scroll', function(e) {
-            		var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-							shrinkOn = 300,
-							header = document.querySelector("header");
-            		if (distanceY > shrinkOn) {
-                		classie.add(header,"smaller");
-            		} else {
-                		if (classie.has(header,"smaller")) {
-                    		classie.remove(header,"smaller");
-                		}
-            		}
-        		});
-    		}
-			
-    		window.onload = init();
-			
-		</script>
-		
+		<link rel="stylesheet" href="assets/css/footer.css">	
 	</head>
 	<body>
 	
@@ -143,6 +122,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		
 		<script src="assets/js/header-resize.js"></script>
+		
+		<script src="assets/js/app.js"></script>
 		
 	</body>	
 </html>
