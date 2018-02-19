@@ -16,8 +16,17 @@ function init() {
 		method: 'GET',
 		url: 'assets/data/menu.json',
 		dataType:'json',
-		success: function(){
+		success: function(data){
 			console.log('call was good');
+			console.log(data.menu.length);
+			
+			if(data.menu.length > 0){
+				data.menu.forEach(function(item){
+					console.log(item);
+					$('nav').append('<a href="'+item.MenuLink+'">'+item.MenuName+'</a>');
+								  });
+			}
+			
 	},
 		error: function(){
 			console.log('call was bad');
