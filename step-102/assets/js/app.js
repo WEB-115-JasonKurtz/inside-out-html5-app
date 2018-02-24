@@ -18,8 +18,8 @@ function init() {
 		dataType: 'json',
 		success: function (data) {
 
-			menuBuilder(data.menu);
-
+			var menu = menuBuilder(data.menu);
+			$('#primary_nav_wrap').html(menu);
 
 		},
 		error: function () {
@@ -38,13 +38,19 @@ window.onload = init();
 function menuBuilder($obj) {
 	var theMenu = '';
 	if ($obj.length > 0) {
-		theMenu = theMenu + '<ul>'
+		theMenu = theMenu + '<ul>';
 		$obj.forEach(function (item) {
 
-			theMenu = theMenu + '<li><a href="#">' + item.MenuName + '</a></li>';
+			theMenu = theMenu + '<li><a href="#">' + item.MenuName + '</a>';
+			
+			if (item.Menus.length > 0){
+				theMenu = theMenu + menuBuilder(item.Menus);
+			}
+			theMenu = theMenu + '</li>';
 		});
 		theMenu = theMenu + '</ul>';
-		$('#primary_nav_wrap').html(theMenu);
+		
+		return theMenu;
 	}
 
 }
