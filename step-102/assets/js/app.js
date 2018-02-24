@@ -11,34 +11,40 @@ function init() {
 			}
 		}
 	});
-	
+
 	$.ajax({
 		method: 'GET',
 		url: 'assets/data/menu.json',
-		dataType:'json',
-		success: function(data){
+		dataType: 'json',
+		success: function (data) {
 
-			
-			if(data.menu.length > 0){
-				var theMenu = '<ul>';
-				data.menu.forEach(function(item){
+			menuBuilder(data.menu);
 
-					theMenu = theMenu+'<li><a href="'+item.MenuLink+'">'+item.MenuName+'</a></li>';
-								  });
-				theMenu = theMenu+'</ul>';
-				$('#primary_nav_wrap').html(theMenu);
-			}
-			
-	},
-		error: function(){
+
+		},
+		error: function () {
 			console.log('call was bad');
-	}
+		}
 	});
-	
-	
-	
-	
-	
+
+
+
+
+
 }
 
 window.onload = init();
+
+function menuBuilder($obj) {
+
+	if ($obj.length > 0) {
+		var theMenu = '<ul>';
+		$obj.forEach(function (item) {
+
+			theMenu = theMenu + '<li><a href="' + item.MenuLink + '">' + item.MenuName + '</a></li>';
+		});
+		theMenu = theMenu + '</ul>';
+		$('#primary_nav_wrap').html(theMenu);
+	}
+
+}
