@@ -36,12 +36,12 @@ function init() {
 window.onload = init();
 
 function menuBuilder($obj) {
-
+	var theMenu = '';
 	if ($obj.length > 0) {
-		var theMenu = '<ul>';
+		theMenu = theMenu + '<ul>'
 		$obj.forEach(function (item) {
 
-			theMenu = theMenu + '<li><a href="' + item.MenuLink + '">' + item.MenuName + '</a></li>';
+			theMenu = theMenu + '<li><a href="#">' + item.MenuName + '</a></li>';
 		});
 		theMenu = theMenu + '</ul>';
 		$('#primary_nav_wrap').html(theMenu);
