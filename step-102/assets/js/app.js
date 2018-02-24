@@ -17,14 +17,16 @@ function init() {
 		url: 'assets/data/menu.json',
 		dataType:'json',
 		success: function(data){
-			console.log('call was good');
-			console.log(data.menu.length);
+
 			
 			if(data.menu.length > 0){
+				var theMenu = '<ul>';
 				data.menu.forEach(function(item){
-					console.log(item);
-					$('nav').append('<a href="'+item.MenuLink+'">'+item.MenuName+'</a>');
+
+					theMenu = theMenu+'<li><a href="'+item.MenuLink+'">'+item.MenuName+'</a></li>';
 								  });
+				theMenu = theMenu+'</ul>';
+				$('#primary_nav_wrap').html(theMenu);
 			}
 			
 	},
